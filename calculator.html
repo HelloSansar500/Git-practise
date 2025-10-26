@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+      #display {
+        font-size: 24px;
+        margin-bottom: 10px;
+        min-height: 30px;
+      }
+      button {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+        margin: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="display"></p>
+
+    <p>
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('+')">+</button>
+    </p>
+    <p>
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="append('-')">-</button>
+    </p>
+    <p>
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('*')">*</button>
+    </p>
+    <p>
+      <button onclick="append('0')">0</button>
+      <button onclick="append('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="append('/')">/</button>
+    </p>
+    <button onclick="clearCalc()">Clear</button>
+
+    <script>
+      let calculation = "";
+
+      function append(value) {
+        calculation += value;
+        updateDisplay();
+      }
+
+      function calculate() {
+        try {
+          calculation = eval(calculation).toString();
+        } catch (e) {
+          calculation = "Error";
+        }
+        updateDisplay();
+      }
+
+      function clearCalc() {
+        calculation = "";
+        updateDisplay();
+      }
+
+      function updateDisplay() {
+        document.getElementById("display").innerText = calculation;
+        console.log(calculation);
+      }
+    </script>
+  </body>
+</html>
