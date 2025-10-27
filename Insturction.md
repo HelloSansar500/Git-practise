@@ -6,3 +6,5 @@
 <h1>This is a new feature<h1>
 
 # Adding some more information
+
+This is just a mistake line
